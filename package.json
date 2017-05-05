@@ -1,0 +1,13 @@
+{
+  "name": "raspberry-pi-server",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+  },
+  "author": "mirka@jaguchi.com",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2",
+    "node-schedule": "^1.2.1"
+  }
+}
