@@ -1,5 +1,5 @@
 const schedule = require('node-schedule');
-const sunTimes = require('./get-sun-times');
+const sunTimes = require('./sun-times');
 const adjustToSunlight = require('./adjust-to-sunlight');
 
 module.exports = () => {
