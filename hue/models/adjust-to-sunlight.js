@@ -1,7 +1,6 @@
-const HueApi = require('node-hue-api').HueApi;
 const config = require('../config');
+const api = require('./hue-api.js');
 
-const api = new HueApi(config.hue.bridge.ip, config.hue.bridge.username);
 const targetGroups = config.hue.adjustGroups;
 
 const Scene = {
