@@ -1,23 +1,13 @@
 const app = require('express')();
-const schedule = require('node-schedule');
-const sunTimesScheduler = require('./controllers/hue/scheduler.js');
+const hueScheduler = require('./hue/controllers/scheduler.js');
 
 const server = app.listen(8000, () => {
 	const port = server.address().port;
 	console.log('Listening at port %s', port);
 })
 
-// Always update sunrise/sunset times on first launch
-sunTimesScheduler();
-
-
-// ====================================
-// Update sunrise/sunset times every day at midnight
-// ====================================
-schedule.scheduleJob('0 0 * * *', () => {
-	sunTimesScheduler();
-	console.log('Updated sunrise/sunset times');
-});
+// Set up cron-like Hue schedule on first launch
+hueScheduler();
 
 
 // ====================================
