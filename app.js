@@ -17,7 +17,4 @@ app.get('/', (req, res) => {
 	res.send('Hello world!');
 });
 
-app.get('/hue/*', (req, res) => {
-	res.send('Hello Hue!');
-});
-
+app.use('/hue', require('./hue/controllers'));
