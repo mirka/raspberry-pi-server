@@ -1,4 +1,5 @@
 const app = require('express')();
+const bodyParser = require('body-parser');
 const hueScheduler = require('./hue/controllers/scheduler');
 
 const server = app.listen(8000, () => {
@@ -8,6 +9,12 @@ const server = app.listen(8000, () => {
 
 // Set up cron-like Hue schedule on first launch
 hueScheduler();
+
+
+// ====================================
+// Middleware
+// ====================================
+app.use(bodyParser.json());
 
 
 // ====================================
