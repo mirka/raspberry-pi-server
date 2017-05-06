@@ -5,8 +5,8 @@ const api = new HueApi(config.hue.bridge.ip, config.hue.bridge.username);
 const targetGroups = config.hue.adjustGroups;
 
 const Scene = {
-	DAYLIGHT: 'daylightSceneId',
-	EVENING: 'eveningSceneId',
+	DAYLIGHT: 'daylight',
+	EVENING: 'evening',
 }
 
 
@@ -20,7 +20,7 @@ function changeSceneIfAnyLightsAreOn(sceneType) {
 				const group = groups[target.id];
 
 				if (group.state.any_on) {
-					api.activateScene(target[sceneType]);
+					api.activateScene(target.scenes[sceneType]);
 					console.log(`Changed scene in "${group.name}" (${new Date()})`);
 				} else {
 					console.log(`Lights were not on in "${group.name}" (${new Date()})`);
