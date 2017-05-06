@@ -1,21 +1,24 @@
 const schedule = require('node-schedule');
 const sunTimes = require('./get-sun-times.js');
-const adjustToDaylight = function() {} // TODO
-const adjustToEvening = require('./adjust-to-evening.js');
+const adjustToSunlight = require('./adjust-to-sunlight.js');
 
 module.exports = () => {
 
 	sunTimes() // Fetch sunrise/sunset times
 		.then((times) => {
-			schedule.scheduleJob(new Date(times.sunrise), () => {
-				adjustToDaylight();
-				console.log('Adjusted to daylight');
+			const sunrise = new Date(times.sunrise);
+			const sunset = new Date(times.sunset);
+
+			schedule.scheduleJob(sunrise, () => {
+				adjustToSunlight.daylight();
 			});
 
-			schedule.scheduleJob(new Date(times.sunset), () => {
-				adjustToEvening();
-				console.log('Adjusted to evening');
+			schedule.scheduleJob(sunset, () => {
+				adjustToSunlight.evening();
 			});
+
+			console.log(`Next sunrise scheduled for ${sunrise.toLocaleString()}`);
+			console.log(`Next sunset scheduled for ${sunset.toLocaleString()}`);
 		})
 		.catch((err) => {
 			console.log(err);
