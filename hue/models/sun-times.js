@@ -1,5 +1,5 @@
 const https = require('https');
-const config = require('./config.js');
+const config = require('../config');
 
 const coords = config.sunTimesCoords;
 const sunsetSunriseApiOptions = {
