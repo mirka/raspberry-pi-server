@@ -1,5 +1,5 @@
 const app = require('express')();
-const hueScheduler = require('./hue/controllers/scheduler.js');
+const hueScheduler = require('./hue/controllers/scheduler');
 
 const server = app.listen(8000, () => {
 	const port = server.address().port;
