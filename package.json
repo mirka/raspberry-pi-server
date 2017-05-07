@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.15.2",
+    "node-cache": "^4.1.1",
     "node-hue-api": "^2.4.2",
     "node-schedule": "^1.2.1"
   }
