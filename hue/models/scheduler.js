@@ -25,7 +25,7 @@ function buildRuleFrom(time) {
 
 module.exports = () => {
 
-	sunTimes() // Fetch sunrise/sunset times
+	return sunTimes() // Fetch sunrise/sunset times
 		.then((times) => {
 			const sunrise = new Date(times.sunrise);
 			const sunset = new Date(times.sunset);

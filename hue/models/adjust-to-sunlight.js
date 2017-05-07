@@ -13,7 +13,7 @@ const Scene = {
 // to sceneType (Scene.DAYLIGHT or Scene.EVENING) if
 // at least one light from that group is currently on.
 function changeSceneIfAnyLightsAreOn(sceneType) {
-	api.groups()
+	return api.groups()
 		.then((groups) => {
 			targetGroups.forEach((target) => {
 				const group = groups[target.id];

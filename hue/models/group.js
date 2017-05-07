@@ -15,14 +15,14 @@ const states = {
 
 // Toggle group on/off
 function toggle(groupId) {
-	toggleUsingFunction(groupId, () => {
+	return toggleUsingFunction(groupId, () => {
 		api.setGroupLightState(groupId, states.on);
 	});
 }
 
 // Toggle group on/off, switching between scenes depending on time of day
 function smartToggle(groupId) {
-	toggleUsingFunction(groupId, () => {
+	return toggleUsingFunction(groupId, () => {
 		let target = targetGroups.find(findSceneForGroup);
 
 		if (true /* TODO: is daytime */) {
@@ -39,7 +39,7 @@ function smartToggle(groupId) {
 
 // onFunction decides what to do when group lights are currently off
 function toggleUsingFunction(groupId, onFunction) {
-	api.groups()
+	return api.groups()
 		.then((groups) => {
 			const group = groups[groupId];
 
