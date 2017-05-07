@@ -37,8 +37,8 @@ function getSunsetSunriseTimes(options) {
 					const body = Buffer.concat(chunks).toString();
 					const result = JSON.parse(body).results;
 					const times = {
-						sunrise: result.sunrise,
-						sunset: result.sunset,
+						sunrise: new Date(result.sunrise),
+						sunset: new Date(result.sunset),
 					}
 					cache.set(sunTimesKey, times, ttl);
 					resolve(times);

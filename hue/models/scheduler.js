@@ -27,10 +27,8 @@ module.exports = () => {
 
 	return sunTimes() // Fetch sunrise/sunset times
 		.then((times) => {
-			const sunrise = new Date(times.sunrise);
-			const sunset = new Date(times.sunset);
-			const sunriseRule = buildRuleFrom(sunrise);
-			const sunsetRule = buildRuleFrom(sunset);
+			const sunriseRule = buildRuleFrom(times.sunrise);
+			const sunsetRule = buildRuleFrom(times.sunset);
 
 			cancelJobsIfExists(jobs);
 
@@ -42,8 +40,8 @@ module.exports = () => {
 				adjustToSunlight.evening();
 			});
 
-			console.log(`Next sunrise scheduled for ${sunrise.toLocaleTimeString()}`);
-			console.log(`Next sunset scheduled for ${sunset.toLocaleTimeString()}`);
+			console.log(`Next sunrise scheduled for ${times.sunrise.toLocaleTimeString()}`);
+			console.log(`Next sunset scheduled for ${times.sunset.toLocaleTimeString()}`);
 		})
 		.catch((err) => {
 			console.log(err);
