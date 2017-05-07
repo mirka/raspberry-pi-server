@@ -1,6 +1,7 @@
 const assert = require('assert');
 const sandbox = require('sinon').sandbox.create();
 const group = require('./group');
+const cache = require('./cache').init();
 
 // Stubs
 const api = require('./hue-api.js');
@@ -86,7 +87,7 @@ describe('Group', () => {
 			});
 
 			it('10 AM', () => {
-				sandbox.useFakeTimers(new Date().setTime(10));
+				sandbox.useFakeTimers(new Date().setHours(10));
 				return group.smartToggle(1)
 					.then(() => {
 						assert(api.activateScene.calledOnce);
@@ -95,7 +96,7 @@ describe('Group', () => {
 			});
 
 			it('22 PM', () => {
-				sandbox.useFakeTimers(new Date().setTime(22));
+				sandbox.useFakeTimers(new Date().setHours(22));
 				return group.smartToggle(1)
 					.then(() => {
 						assert(api.activateScene.calledOnce);
@@ -104,7 +105,7 @@ describe('Group', () => {
 			});
 
 			it('3 AM', () => {
-				sandbox.useFakeTimers(new Date().setTime(3));
+				sandbox.useFakeTimers(new Date().setHours(3));
 				return group.smartToggle(1)
 					.then(() => {
 						assert(api.activateScene.calledOnce);
