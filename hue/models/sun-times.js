@@ -6,7 +6,7 @@ const coords = config.sunTimesCoords;
 const sunsetSunriseApiOptions = {
 	method: 'GET',
 	hostname: 'api.sunrise-sunset.org',
-	path: `/json?lat=${coords.lat}&lng=${coords.lng}&date=tomorrow&formatted=0`,
+	path: `/json?lat=${coords.lat}&lng=${coords.lng}&formatted=0`,
 }
 
 const sunTimesKey = 'sunTimes';
