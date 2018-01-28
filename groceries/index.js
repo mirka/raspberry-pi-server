@@ -35,45 +35,27 @@ router.get('/', (req, res) => {
 });
 
 router.get('/api/items', (req, res) => {
-	getList()
-		.then((list) => {
-			res.send(list);
-		})
-		.catch((err) => {
-			res.status(500).send(err);
-		});
+	getJsonAndRoute(getList, req, res);
 });
 
 router.put('/api/items', (req, res) => {
-	fs.writeFile(dataPath + '/list.json', JSON.stringify(req.body), (err) => {
-		if (err) {
-			res.status(500).send(err);
-		} else {
-			res.sendStatus(200);
-		}
-	});
+	putJsonToFile('list', req, res);
 });
 
 router.get('/api/items/needed', (req, res) => {
-	getNeededList()
-		.then((list) => {
-			res.send(list);
-		})
-		.catch((err) => {
-			res.status(500).send(err);
-		});
+	getJsonAndRoute(getNeededList, req, res);
 });
 
 router.put('/api/items/needed', (req, res) => {
-	fs.writeFile(dataPath + '/needed.json', JSON.stringify(req.body), (err) => {
-		if (err) {
-			res.status(500).send(err);
-		} else {
-			res.sendStatus(200);
-		}
-	});
+	putJsonToFile('needed', req, res);
 });
 
+
+// ====================================
+// Helpers
+// ====================================
+
+// Get data object of all items
 function getList() {
 	const listPath = dataPath + '/list.json';
 
@@ -91,6 +73,7 @@ function getList() {
 	});
 }
 
+// Get data object of needed items
 function getNeededList() {
 	return new Promise((resolve, reject) => {
 		fs.readFile(dataPath + '/needed.json', (err, data) => {
@@ -100,6 +83,28 @@ function getNeededList() {
 				resolve(JSON.parse(data));
 			}
 		});
+	});
+}
+
+// Route (send) data
+function getJsonAndRoute(jsonPromiseFunc, req, res) {
+	jsonPromiseFunc()
+		.then((list) => {
+			res.send(list);
+		})
+		.catch((err) => {
+			res.status(500).send(err);
+		});
+}
+
+// Write routed json data to file
+function putJsonToFile(fileName, req, res) {
+	fs.writeFile(`${dataPath}/${fileName}.json`, JSON.stringify(req.body), (err) => {
+		if (err) {
+			res.status(500).send(err);
+		} else {
+			res.sendStatus(200);
+		}
 	});
 }
 
