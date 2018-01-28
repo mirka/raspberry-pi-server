@@ -12,7 +12,8 @@
     "express": "^4.15.2",
     "node-cache": "^4.1.1",
     "node-hue-api": "^2.4.2",
-    "node-schedule": "^1.2.1"
+    "node-schedule": "^1.2.1",
+    "nunjucks": "^3.0.1"
   },
   "devDependencies": {
     "mocha": "^3.3.0",

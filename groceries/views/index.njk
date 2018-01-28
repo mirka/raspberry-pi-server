@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Grocery List</title>
+	<link rel="stylesheet" href="./static/normalize.css">
+	<link rel="stylesheet" href="./static/styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script></script>
+</head>
+
+<body>
+	<form>
+		<div class="header-wrapper">
+			<header>
+				<input type="reset" value="Reset">
+				<h1>Grocery List</h1>
+				<input type="button" data-done-btn value="Done">
+			</header>
+		</div>
+		<p class="notification -hide">Updated!</p>
+		<ul id="list">
+			{% for item in list %}
+				<li>
+					<label class="{{ 'checked' if not item.needed }}">
+						<input type="checkbox"
+							{{ 'checked' if not item.needed }}
+							data-name="{{ item.name }}"
+							data-id="{{ item.id }}">
+						{{ item.name }}
+					</label>
+				</li>
+			{% endfor %}
+		</ul>
+	</form>
+
+	<div class="editor">
+		<a href="#" data-editor-open>Edit Items</a>
+		<div data-editor-spinner hidden>
+			<div class="bounce1"></div>
+			<div class="bounce2"></div>
+			<div class="bounce3"></div>
+		</div>
+		<form data-editor hidden>
+			<textarea data-editor-textarea id="editor-textarea"></textarea>
+			<div class="editor-controls">
+				<a href="#" data-editor-close>Cancel</a>
+				<input type="submit" data-editor-save value="Save">
+			</div>
+		</form>
+	</div>
+
+	<script src="./static/scripts.js"></script>
+	<script src="./static/editor.js"></script>
+</body>
+</html>

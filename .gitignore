@@ -1,3 +1,4 @@
 /node_modules
 *.swp
 /hue/config.js
+/groceries/data/list.json
