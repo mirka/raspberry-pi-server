@@ -83,7 +83,12 @@ li label {
 	align-items: center;
 	min-height: 52px;
 	padding-left: 12px;
+	cursor: pointer;
 	font-size: 1.15rem;
+}
+
+li label:hover {
+	background-color: #FAFAFA;
 }
 
 li label.checked {
