@@ -1,6 +1,8 @@
 /*eslint-env jquery*/
 
-$('[data-editor-open]').click(() => {
+$('[data-editor-open]').click((e) => {
+	e.preventDefault();
+
 	$('[data-editor-spinner]').addClass('spinner').show();
 	fetch('./api/items')
 		.then((res) => res.json())
@@ -15,7 +17,9 @@ $('[data-editor-open]').click(() => {
 
 });
 
-$('[data-editor-close]').click(() => {
+$('[data-editor-close]').click((e) => {
+	e.preventDefault();
+
 	$('[data-editor-textarea]').val('');
 	$('[data-editor]').slideUp(200);
 });
