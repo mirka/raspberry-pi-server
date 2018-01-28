@@ -38,4 +38,8 @@ app.get('/', (req, res) => {
 
 app.use('/hue', require('./hue/controllers'));
 
-app.use('/groceries', require('./groceries'));
+// Redirect to avoid relative path errors in index.html
+app.all(/^\/groceries$/, (req, res) => {
+	res.redirect('/groceries/');
+});
+app.use('/groceries/', require('./groceries'));
