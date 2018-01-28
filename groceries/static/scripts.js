@@ -3,7 +3,7 @@
 function resultAsJson() {
 	const result = { items: [] };
 
-	$('#list input[type=checkbox]').filter(':not(:checked)').each((i, e) => {
+	$('#list input[type=checkbox]').filter(':not(":checked")').each((i, e) => {
 		result.items.push({
 			name: e.dataset.name,
 			id: e.dataset.id,
@@ -44,6 +44,7 @@ function toggleCheckboxItem() {
 
 $('[data-done-btn]').click(update);
 $('input[type="checkbox"]').change(toggleCheckboxItem);
-$('input[type="reset"]').click(() => {
-	$('input[type="checkbox"]').parent().removeClass('checked');
+$('input[type="reset"]').click((e) => {
+	e.preventDefault();
+	$('input[type="checkbox"]').prop('checked', false).trigger('change');
 });
