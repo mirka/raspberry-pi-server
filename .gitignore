@@ -2,3 +2,4 @@
 *.swp
 /hue/config.js
 /groceries/data/list.json
+.vscode
