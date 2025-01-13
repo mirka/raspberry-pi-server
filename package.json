@@ -9,7 +9,7 @@
   "author": "mirka@jaguchi.com",
   "license": "MIT",
   "engines": {
-    "node": ">=17.9.1"
+    "node": ">=20"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
