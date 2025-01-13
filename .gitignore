@@ -3,3 +3,5 @@
 /hue/config.js
 /groceries/data/list.json
 .vscode
+.DS_Store
+@eaDir
