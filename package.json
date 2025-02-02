@@ -4,6 +4,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
+    "sync:twitter": "(cd touitomamout/; node ./dist/index.js .env.mirka)",
     "test": "mocha '**/*.spec.js' --full-trace"
   },
   "author": "mirka@jaguchi.com",
