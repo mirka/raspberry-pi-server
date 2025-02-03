@@ -1,0 +1,42 @@
+{
+	"day": [
+		{
+			"name": "Good Morning Jazz",
+			"id": "spotify:playlist:37i9dQZF1DX71VcjjnyaBQ"
+		},
+		{
+			"name": "metropolis",
+			"id": "spotify:playlist:37i9dQZF1DX8CopunbDxgW"
+		},
+		{
+			"name": "Soups & Onions / Soul Cookin' By (The Roy Meriwether Trio)",
+			"id": "spotify:album:1u4wF8OdOQWecFfZQPBqbH"
+		}
+	],
+	"night": [
+		{
+			"name": "Blues in the Background",
+			"id": "spotify:playlist:37i9dQZF1DX7b1e7B17gg7"
+		},
+		{
+			"name": "golden hour",
+			"id": "spotify:playlist:37i9dQZF1DWUE76cNNotSg"
+		},
+		{
+			"name": "Night Rider",
+			"id": "spotify:playlist:37i9dQZF1DX6GJXiuZRisr"
+		},
+		{
+			"name": "Mellow Beats",
+			"id": "spotify:playlist:37i9dQZF1DX3qCx5yEZkcJ"
+		},
+		{
+			"name": "Jazz Vibes",
+			"id": "spotify:playlist:37i9dQZF1DX0SM0LYsmbMT"
+		},
+		{
+			"name": "Retrowave // Outrun",
+			"id": "spotify:playlist:37i9dQZF1DXdLEN7aqioXM"
+		}
+	]
+}

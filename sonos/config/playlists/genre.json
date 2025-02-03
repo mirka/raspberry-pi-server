@@ -1,0 +1,26 @@
+{
+	"jazz": [
+		{
+			"name": "State of Jazz",
+			"id": "spotify:playlist:37i9dQZF1DX7YCknf2jT6s"
+		},
+		{
+			"name": "Prog Jazz",
+			"id": "spotify:playlist:37i9dQZF1DX9NNVWdU83m6"
+		}
+	],
+	"blues": [
+		{
+			"name": "Blues in the Background",
+			"id": "spotify:playlist:37i9dQZF1DX7b1e7B17gg7"
+		},
+		{
+			"name": "Modern Blues Guitar",
+			"id": "spotify:playlist:37i9dQZF1DWZBWeillXfzX"
+		},
+		{
+			"name": "Acoustic Blues",
+			"id": "spotify:playlist:37i9dQZF1DX2iUghHXGIjj"
+		}
+	]
+}

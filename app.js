@@ -4,6 +4,8 @@ const cacheProvider = require('./hue/models/cache');
 const bodyParser = require('body-parser');
 const hueScheduler = require('./hue/controllers/scheduler');
 
+require('dotenv').config();
+
 const server = app.listen(8000, () => {
 	const port = server.address().port;
 	console.log('Listening at port %s', port);
@@ -43,3 +45,7 @@ app.all(/^\/groceries$/, (req, res) => {
 	res.redirect('/groceries/');
 });
 app.use('/groceries/', require('./groceries'));
+
+import('./sonos/controllers/index.mjs').then(sonosRoutes => {
+	app.use('/sonos', sonosRoutes.default);
+});
